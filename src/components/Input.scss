@@ -1,0 +1,12 @@
+.custom-input {
+    margin-bottom: 10px;
+    width: 70%;
+    height: 2rem;
+    border-radius: 5px;
+
+    &:focus {
+        outline: none;
+        border: 0;
+        box-shadow: none;
+    }
+}
