@@ -7,3 +7,13 @@
     border: none;
     font-size: 12pt;
 }
+
+.success {
+    @extend .custom-button;
+    background-color: #3ac461;
+}
+
+.error {
+    @extend .custom-button;
+    background-color: #ea3535;
+}

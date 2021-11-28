@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import API from '../api/API';
 import { FormData } from '../model/FormData';
-import { Color } from '../model/enums/Color';
+import { Status } from '../model/enums/Status';
 import Button from './Button';
 import Input from './Input';
 import './Form.scss';
 
 const Form = () => {
 	const [borderColor, setBordercolor] = useState('');
-    const [btnColor, setBtnColor] = useState('');
+    const [status, setStatus] = useState('');
 
 	const [formData, setFormData] = useState(new FormData());
 
@@ -23,9 +23,9 @@ const Form = () => {
 		API.post('form', formData)
 			.then((res) => {
 				console.log(res.data);
-                setBtnColor(Color.GREEN);
+                setStatus(Status.SUCCESS);
 			})
-			.catch((err) => {setBtnColor(Color.RED)});
+			.catch((err) => {setStatus(Status.ERROR)});
 
         e.preventDefault();
 	};
@@ -59,7 +59,7 @@ const Form = () => {
 						setFormData({ ...formData, email: e.target.value })
 					}></Input>
 
-				<Button submit={submit} label='SUBMIT' color={btnColor}></Button>
+				<Button submit={submit} label='SUBMIT' status={status}></Button>
 			</form>
 		</div>
 	);

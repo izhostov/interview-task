@@ -5,8 +5,7 @@ const Button = (props: any) => {
   return (
 		<button
 			onSubmit={props.sumbit}
-			className='custom-button'
-			style={{ backgroundColor: props.color }}>
+			className={'custom-button ' + props.status}>
 			{props.label}
 		</button>
   );
